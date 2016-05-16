@@ -11,6 +11,17 @@
 		34A963B11CE5156B00CD9B57 /* Emulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A963AF1CE5156B00CD9B57 /* Emulator.swift */; };
 		34A963B21CE5156B00CD9B57 /* Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A963B01CE5156B00CD9B57 /* Spec.swift */; };
 		34A963B41CE5160D00CD9B57 /* Compiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A963B31CE5160D00CD9B57 /* Compiler.swift */; };
+		34E2D0601CEA633800DD34D0 /* Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A963B01CE5156B00CD9B57 /* Spec.swift */; };
+		34E2D0611CEA633B00DD34D0 /* Emulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A963AF1CE5156B00CD9B57 /* Emulator.swift */; };
+		34E2D0621CEA633E00DD34D0 /* Compiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A963B31CE5160D00CD9B57 /* Compiler.swift */; };
+		34E2D0671CEA644700DD34D0 /* Challenge.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D0641CEA644700DD34D0 /* Challenge.cc3 */; };
+		34E2D0681CEA644700DD34D0 /* Equal.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D0651CEA644700DD34D0 /* Equal.cc3 */; };
+		34E2D0691CEA644700DD34D0 /* Pretty Challenge.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D0661CEA644700DD34D0 /* Pretty Challenge.cc3 */; };
+		34E2D06B1CEA692400DD34D0 /* Test.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D06A1CEA692400DD34D0 /* Test.cc3 */; };
+		34E2D0701CEA6EFB00DD34D0 /* InvalidSyntax.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D06F1CEA6EFB00DD34D0 /* InvalidSyntax.cc3 */; };
+		34E2D0721CEA6F2000DD34D0 /* UnknownMethod.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D0711CEA6F2000DD34D0 /* UnknownMethod.cc3 */; };
+		34E2D0741CEA6F4200DD34D0 /* IllegalArgument.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D0731CEA6F4200DD34D0 /* IllegalArgument.cc3 */; };
+		34E2D0761CEA710900DD34D0 /* Compiler_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E2D0751CEA710900DD34D0 /* Compiler_Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,10 +43,27 @@
 		34A963B01CE5156B00CD9B57 /* Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spec.swift; sourceTree = "<group>"; };
 		34A963B31CE5160D00CD9B57 /* Compiler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compiler.swift; sourceTree = "<group>"; };
 		34A963B51CE5194100CD9B57 /* CC3 Lang Spec.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "CC3 Lang Spec.md"; sourceTree = "<group>"; };
+		34E2D0561CEA617F00DD34D0 /* CC3 Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CC3 Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		34E2D05A1CEA617F00DD34D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34E2D0641CEA644700DD34D0 /* Challenge.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Challenge.cc3; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		34E2D0651CEA644700DD34D0 /* Equal.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Equal.cc3; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		34E2D0661CEA644700DD34D0 /* Pretty Challenge.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Pretty Challenge.cc3"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		34E2D06A1CEA692400DD34D0 /* Test.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test.cc3; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		34E2D06F1CEA6EFB00DD34D0 /* InvalidSyntax.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = InvalidSyntax.cc3; sourceTree = "<group>"; };
+		34E2D0711CEA6F2000DD34D0 /* UnknownMethod.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UnknownMethod.cc3; sourceTree = "<group>"; };
+		34E2D0731CEA6F4200DD34D0 /* IllegalArgument.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IllegalArgument.cc3; sourceTree = "<group>"; };
+		34E2D0751CEA710900DD34D0 /* Compiler_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compiler_Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		34A963871CE50C7900CD9B57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34E2D0531CEA617F00DD34D0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -49,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				34A9638C1CE50C7900CD9B57 /* Coding Challenge 3 */,
+				34E2D0571CEA617F00DD34D0 /* CC3 Tests */,
 				34A9638B1CE50C7900CD9B57 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				34A9638A1CE50C7900CD9B57 /* cc3 */,
+				34E2D0561CEA617F00DD34D0 /* CC3 Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,6 +111,55 @@
 			path = CC3;
 			sourceTree = "<group>";
 		};
+		34E2D0571CEA617F00DD34D0 /* CC3 Tests */ = {
+			isa = PBXGroup;
+			children = (
+				34E2D0631CEA644700DD34D0 /* CC3 Source Files */,
+				34E2D0751CEA710900DD34D0 /* Compiler_Tests.swift */,
+				34E2D05A1CEA617F00DD34D0 /* Info.plist */,
+			);
+			path = "CC3 Tests";
+			sourceTree = "<group>";
+		};
+		34E2D0631CEA644700DD34D0 /* CC3 Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				34E2D06C1CEA6E8800DD34D0 /* Tests */,
+				34E2D06D1CEA6E9200DD34D0 /* Challenge */,
+				34E2D06E1CEA6EA200DD34D0 /* Fun */,
+			);
+			name = "CC3 Source Files";
+			path = "Test Files";
+			sourceTree = "<group>";
+		};
+		34E2D06C1CEA6E8800DD34D0 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				34E2D06A1CEA692400DD34D0 /* Test.cc3 */,
+				34E2D06F1CEA6EFB00DD34D0 /* InvalidSyntax.cc3 */,
+				34E2D0711CEA6F2000DD34D0 /* UnknownMethod.cc3 */,
+				34E2D0731CEA6F4200DD34D0 /* IllegalArgument.cc3 */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		34E2D06D1CEA6E9200DD34D0 /* Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				34E2D0641CEA644700DD34D0 /* Challenge.cc3 */,
+				34E2D0661CEA644700DD34D0 /* Pretty Challenge.cc3 */,
+			);
+			name = Challenge;
+			sourceTree = "<group>";
+		};
+		34E2D06E1CEA6EA200DD34D0 /* Fun */ = {
+			isa = PBXGroup;
+			children = (
+				34E2D0651CEA644700DD34D0 /* Equal.cc3 */,
+			);
+			name = Fun;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -101,6 +180,23 @@
 			productReference = 34A9638A1CE50C7900CD9B57 /* cc3 */;
 			productType = "com.apple.product-type.tool";
 		};
+		34E2D0551CEA617F00DD34D0 /* CC3 Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34E2D05D1CEA617F00DD34D0 /* Build configuration list for PBXNativeTarget "CC3 Tests" */;
+			buildPhases = (
+				34E2D0521CEA617F00DD34D0 /* Sources */,
+				34E2D0531CEA617F00DD34D0 /* Frameworks */,
+				34E2D0541CEA617F00DD34D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CC3 Tests";
+			productName = "CC3 Tests";
+			productReference = 34E2D0561CEA617F00DD34D0 /* CC3 Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -112,6 +208,9 @@
 				ORGANIZATIONNAME = "WillowTree, Inc";
 				TargetAttributes = {
 					34A963891CE50C7900CD9B57 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					34E2D0551CEA617F00DD34D0 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
 				};
@@ -129,9 +228,27 @@
 			projectRoot = "";
 			targets = (
 				34A963891CE50C7900CD9B57 /* Coding Challenge 3 */,
+				34E2D0551CEA617F00DD34D0 /* CC3 Tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		34E2D0541CEA617F00DD34D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34E2D0741CEA6F4200DD34D0 /* IllegalArgument.cc3 in Resources */,
+				34E2D0691CEA644700DD34D0 /* Pretty Challenge.cc3 in Resources */,
+				34E2D0701CEA6EFB00DD34D0 /* InvalidSyntax.cc3 in Resources */,
+				34E2D0681CEA644700DD34D0 /* Equal.cc3 in Resources */,
+				34E2D0671CEA644700DD34D0 /* Challenge.cc3 in Resources */,
+				34E2D06B1CEA692400DD34D0 /* Test.cc3 in Resources */,
+				34E2D0721CEA6F2000DD34D0 /* UnknownMethod.cc3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		34A963861CE50C7900CD9B57 /* Sources */ = {
@@ -142,6 +259,17 @@
 				34A963B11CE5156B00CD9B57 /* Emulator.swift in Sources */,
 				34A9638E1CE50C7900CD9B57 /* main.swift in Sources */,
 				34A963B21CE5156B00CD9B57 /* Spec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34E2D0521CEA617F00DD34D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34E2D0621CEA633E00DD34D0 /* Compiler.swift in Sources */,
+				34E2D0611CEA633B00DD34D0 /* Emulator.swift in Sources */,
+				34E2D0601CEA633800DD34D0 /* Spec.swift in Sources */,
+				34E2D0761CEA710900DD34D0 /* Compiler_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +374,28 @@
 			};
 			name = Release;
 		};
+		34E2D05B1CEA617F00DD34D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "CC3 Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.willowtreeapps.CC3-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		34E2D05C1CEA617F00DD34D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "CC3 Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.willowtreeapps.CC3-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -263,6 +413,15 @@
 			buildConfigurations = (
 				34A963921CE50C7900CD9B57 /* Debug */,
 				34A963931CE50C7900CD9B57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		34E2D05D1CEA617F00DD34D0 /* Build configuration list for PBXNativeTarget "CC3 Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34E2D05B1CEA617F00DD34D0 /* Debug */,
+				34E2D05C1CEA617F00DD34D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

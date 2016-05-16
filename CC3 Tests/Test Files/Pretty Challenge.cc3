@@ -1,0 +1,23 @@
+# Get register 9 to 999
+
+set  9 9 #0
+mult 9 2
+mult 9 5
+add  9 9
+mult 9 2
+mult 9 5 #5
+add  9 9
+
+
+# Loop on register 8 from 3 down to 0 by subtracting 1 (adding 999)
+
+set     8 3
+set     7 9
+add_reg 8 9
+goto    7 8 #10
+
+exit
+
+null
+null
+null

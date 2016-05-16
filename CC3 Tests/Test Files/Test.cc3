@@ -1,0 +1,17 @@
+null
+set 1 2
+add 2 3
+mult 3 4
+set_reg 4 5
+add_reg 5 6
+mult_reg 6 7
+read 7 8
+write 8 9
+goto 9 0
+raw 123
+123
+
+# comment
+null #inline comment
+
+exit
