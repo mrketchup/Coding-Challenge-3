@@ -80,5 +80,58 @@ class Binary_Tests: XCTestCase {
             XCTFail("\(error)")
         }
     }
+    
+    func testBinaryReaderSuccess() {
+        do {
+            let reader = BinaryReader()
+            let instructions = try reader.decode(data: NSData())
+            XCTAssertEqual(instructions, [])
+        } catch {
+            XCTFail("\(error)")
+        }
+        
+        do {
+            let data = NSMutableData()
+            data.appendBytes(UnsafePointer([0x00]), length: 1)
+            data.appendBytes(UnsafePointer([0x00]), length: 1)
+            data.appendBytes(UnsafePointer([0x10]), length: 1)
+            data.appendBytes(UnsafePointer([0x0B]), length: 1)
+            data.appendBytes(UnsafePointer([0xE5]), length: 1)
+            data.appendBytes(UnsafePointer([0xF9]), length: 1)
+            data.appendBytes(UnsafePointer([0xBE]), length: 1)
+            data.appendBytes(UnsafePointer([0x70]), length: 1)
+            let reader = BinaryReader()
+            let instructions = try reader.decode(data: data)
+            XCTAssertEqual(instructions, [000, 001, 002, 997, 998, 999])
+        } catch {
+            XCTFail("\(error)")
+        }
+        
+        do {
+            let writer = BinaryWriter()
+            let instructions = Array(count: Architecture.RamSize, repeatedValue: 101)
+            let data = try writer.encode(instructions: instructions)
+            let reader = BinaryReader()
+            XCTAssertEqual(instructions, try reader.decode(data: data))
+        } catch {
+            XCTFail("\(error)")
+        }
+    }
+    
+    func testBinaryReaderInstructionOverflow() {
+        do {
+            let writer = BinaryWriter()
+            let instructions = Array(count: Architecture.RamSize, repeatedValue: 101)
+            let data = NSMutableData(data: try writer.encode(instructions: instructions))
+            data.appendBytes(UnsafePointer([0x10]), length: 1)
+            data.appendBytes(UnsafePointer([0x10]), length: 1)
+            let reader = BinaryReader()
+            try reader.decode(data: data)
+        } catch let error as BinaryReader.Error {
+            XCTAssertTrue(error == .InstructionOverflow)
+        } catch {
+            XCTFail("\(error)")
+        }
+    }
 
 }

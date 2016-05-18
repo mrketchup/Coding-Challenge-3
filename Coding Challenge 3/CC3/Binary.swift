@@ -20,7 +20,7 @@ class BinaryWriter {
     var outCount = 0
     
     func encode(instructions instructions: [Int]) throws -> NSData {
-        guard instructions.count < Architecture.RamSize else {
+        guard instructions.count <= Architecture.RamSize else {
             throw Error.TooManyInstructions(instructions.count)
         }
         
@@ -80,8 +80,52 @@ class BinaryWriter {
 
 class BinaryReader {
     
+    enum Error: ErrorType {
+        case InstructionOverflow
+    }
+    
+    var pointer: UnsafePointer<UInt8> = nil
+    var inByte: UInt8 = 0
+    var inCount = 8
+    
     func decode(data data: NSData) throws -> [Int] {
-        return []
+        pointer = UnsafePointer<UInt8>(data.bytes)
+        
+        var instructions: [Int] = []
+        var buffer: [Bool] = []
+        
+        for _ in 0..<(data.length * 8) {
+            buffer.append(readBit())
+            
+            if buffer.count == Architecture.DigitSize {
+                var instruction = 0
+                for bit in buffer {
+                    instruction <<= 1
+                    instruction += bit ? 1 : 0
+                }
+                
+                buffer = []
+                instructions.append(instruction)
+                if instructions.count > Architecture.RamSize {
+                    throw Error.InstructionOverflow
+                }
+            }
+        }
+        
+        return instructions
+    }
+    
+    func readBit() -> Bool {
+        if inCount == 8 {
+            inCount = 0
+            inByte = pointer.memory
+            pointer = pointer.successor()
+        }
+        
+        let bit = inByte & 0b10000000
+        inByte <<= 1
+        inCount += 1
+        return bit != 0
     }
     
 }
