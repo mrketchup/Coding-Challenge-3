@@ -15,7 +15,7 @@ class Emulator {
         case MemoryOutOfBounds
     }
     
-    enum PointerMutation {
+    private enum PointerMutation {
         case Increment
         case Goto(Int)
         case Halt
@@ -58,7 +58,7 @@ class Emulator {
         return executions
     }
     
-    func execute(instruction: Int, address: Int) throws -> PointerMutation {
+    private func execute(instruction: Int, address: Int) throws -> PointerMutation {
         guard let method = Architecture.Method(rawValue: instruction / 100) else {
             throw Error.InvalidInstruction(instruction, address: address)
         }
@@ -78,41 +78,41 @@ class Emulator {
         }
     }
     
-    func set(reg reg: Int, n: Int) -> PointerMutation {
+    private func set(reg reg: Int, n: Int) -> PointerMutation {
         registers[reg] = n % Architecture.WordSize
         return .Increment
     }
     
-    func add(reg reg: Int, n: Int) -> PointerMutation {
+    private func add(reg reg: Int, n: Int) -> PointerMutation {
         return set(reg: reg, n: registers[reg] + n)
     }
     
-    func multiply(reg reg: Int, n: Int) -> PointerMutation {
+    private func multiply(reg reg: Int, n: Int) -> PointerMutation {
         return set(reg: reg, n: registers[reg] * n)
     }
     
-    func set(reg1 reg1: Int, reg2: Int) -> PointerMutation {
+    private func set(reg1 reg1: Int, reg2: Int) -> PointerMutation {
         return set(reg: reg1, n: registers[reg2])
     }
     
-    func add(reg1 reg1: Int, reg2: Int) -> PointerMutation {
+    private func add(reg1 reg1: Int, reg2: Int) -> PointerMutation {
         return add(reg: reg1, n: registers[reg2])
     }
     
-    func multiply(reg1 reg1: Int, reg2: Int) -> PointerMutation {
+    private func multiply(reg1 reg1: Int, reg2: Int) -> PointerMutation {
         return multiply(reg: reg1, n: registers[reg2])
     }
     
-    func read(reg1 reg1: Int, reg2: Int) -> PointerMutation {
+    private func read(reg1 reg1: Int, reg2: Int) -> PointerMutation {
         return set(reg: reg1, n: ram[registers[reg2]])
     }
     
-    func write(reg1 reg1: Int, reg2: Int) -> PointerMutation {
+    private func write(reg1 reg1: Int, reg2: Int) -> PointerMutation {
         ram[registers[reg2]] = registers[reg1]
         return .Increment
     }
     
-    func goto(reg1 reg1: Int, reg2: Int) -> PointerMutation {
+    private func goto(reg1 reg1: Int, reg2: Int) -> PointerMutation {
         guard registers[reg2] > 0 else {
             return .Increment
         }

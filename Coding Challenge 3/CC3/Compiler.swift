@@ -70,7 +70,7 @@ class Compiler {
         return instructions
     }
     
-    func stripComments(line: Int, rawCode: String) throws -> String {
+    private func stripComments(line: Int, rawCode: String) throws -> String {
         let split = rawCode.componentsSeparatedByString(Language.CommentSymbol)
         
         guard let code = split.first?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) else {
@@ -80,7 +80,7 @@ class Compiler {
         return code
     }
     
-    func splitLine(line: Int, code: String) throws -> (Language.Method, Int, Int) {
+    private func splitLine(line: Int, code: String) throws -> (Language.Method, Int, Int) {
         let parts = code.componentsSeparatedByString(" ").filter { !$0.isEmpty }
         
         guard parts.count == 3 else {
@@ -95,7 +95,7 @@ class Compiler {
         return (method, arg1, arg2)
     }
     
-    func parseArgs(line: Int, arg1String: String, arg2String: String) throws -> (Int, Int) {
+    private func parseArgs(line: Int, arg1String: String, arg2String: String) throws -> (Int, Int) {
         guard let arg1 = Int(arg1String) where (0..<Architecture.DigitSize).contains(arg1) else {
             throw Error.IllegalArgument("\(arg1String)", line: line)
         }
@@ -107,7 +107,7 @@ class Compiler {
         return (arg1, arg2)
     }
     
-    func parseRaw(line: Int, code: String) throws -> Int? {
+    private func parseRaw(line: Int, code: String) throws -> Int? {
         guard code.hasPrefix(Language.SpecialMethod.Raw) else {
             guard let rawCode = Int(code) where (0..<Architecture.WordSize).contains(rawCode) else {
                 return nil

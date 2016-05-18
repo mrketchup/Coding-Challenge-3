@@ -15,9 +15,9 @@ class BinaryWriter {
         case InvalidInstruction(Int, index: Int)
     }
     
-    var data = NSMutableData()
-    var outByte: UInt8 = 0
-    var outCount = 0
+    private var data = NSMutableData()
+    private var outByte: UInt8 = 0
+    private var outCount = 0
     
     func encode(instructions instructions: [Int]) throws -> NSData {
         guard instructions.count <= Architecture.RamSize else {
@@ -38,7 +38,7 @@ class BinaryWriter {
         return data
     }
     
-    func binaryArray(instruction: UInt16) -> [Bool] {
+    private func binaryArray(instruction: UInt16) -> [Bool] {
         return [
             instruction & 0b1000000000 > 0,
             instruction & 0b0100000000 > 0,
@@ -53,7 +53,7 @@ class BinaryWriter {
         ]
     }
     
-    func write(bit bit: Bool) {
+    private func write(bit bit: Bool) {
         if outCount == 8 {
             data.appendBytes(&outByte, length: 1)
             outCount = 0
@@ -63,7 +63,7 @@ class BinaryWriter {
         outCount += 1
     }
     
-    func flush() {
+    private func flush() {
         guard outCount > 0 else {
             return
         }
@@ -84,9 +84,9 @@ class BinaryReader {
         case InstructionOverflow
     }
     
-    var pointer: UnsafePointer<UInt8> = nil
-    var inByte: UInt8 = 0
-    var inCount = 8
+    private var pointer: UnsafePointer<UInt8> = nil
+    private var inByte: UInt8 = 0
+    private var inCount = 8
     
     func decode(data data: NSData) throws -> [Int] {
         pointer = UnsafePointer<UInt8>(data.bytes)
@@ -115,7 +115,7 @@ class BinaryReader {
         return instructions
     }
     
-    func readBit() -> Bool {
+    private func readBit() -> Bool {
         if inCount == 8 {
             inCount = 0
             inByte = pointer.memory
