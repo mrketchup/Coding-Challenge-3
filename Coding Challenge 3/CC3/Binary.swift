@@ -20,6 +20,10 @@ class BinaryWriter {
     private var outCount = 0
     
     func encode(instructions instructions: [Int]) throws -> NSData {
+        data = NSMutableData()
+        outByte = 0
+        outCount = 0
+        
         guard instructions.count <= Architecture.RamSize else {
             throw Error.TooManyInstructions(instructions.count)
         }
@@ -90,6 +94,8 @@ class BinaryReader {
     
     func decode(data data: NSData) throws -> [Int] {
         pointer = UnsafePointer<UInt8>(data.bytes)
+        inByte = 0
+        inCount = 8
         
         var instructions: [Int] = []
         var buffer: [Bool] = []
