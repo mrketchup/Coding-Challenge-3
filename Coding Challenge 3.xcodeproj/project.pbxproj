@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		348EB6A11CEBC14B00ADF1C3 /* Binary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348EB6A01CEBC14B00ADF1C3 /* Binary.swift */; };
+		348EB6A31CEBD08900ADF1C3 /* Binary_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348EB6A21CEBD08900ADF1C3 /* Binary_Tests.swift */; };
+		348EB6A41CEBD0CD00ADF1C3 /* Binary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348EB6A01CEBC14B00ADF1C3 /* Binary.swift */; };
 		34A9638E1CE50C7900CD9B57 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A9638D1CE50C7900CD9B57 /* main.swift */; };
 		34A963B11CE5156B00CD9B57 /* Emulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A963AF1CE5156B00CD9B57 /* Emulator.swift */; };
 		34A963B21CE5156B00CD9B57 /* Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A963B01CE5156B00CD9B57 /* Spec.swift */; };
@@ -37,6 +40,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		348EB6A01CEBC14B00ADF1C3 /* Binary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binary.swift; sourceTree = "<group>"; };
+		348EB6A21CEBD08900ADF1C3 /* Binary_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binary_Tests.swift; sourceTree = "<group>"; };
 		34A9638A1CE50C7900CD9B57 /* cc3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cc3; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A9638D1CE50C7900CD9B57 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		34A963AF1CE5156B00CD9B57 /* Emulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emulator.swift; sourceTree = "<group>"; };
@@ -107,6 +112,7 @@
 				34A963B01CE5156B00CD9B57 /* Spec.swift */,
 				34A963AF1CE5156B00CD9B57 /* Emulator.swift */,
 				34A963B31CE5160D00CD9B57 /* Compiler.swift */,
+				348EB6A01CEBC14B00ADF1C3 /* Binary.swift */,
 			);
 			path = CC3;
 			sourceTree = "<group>";
@@ -116,6 +122,7 @@
 			children = (
 				34E2D0631CEA644700DD34D0 /* CC3 Source Files */,
 				34E2D0751CEA710900DD34D0 /* Compiler_Tests.swift */,
+				348EB6A21CEBD08900ADF1C3 /* Binary_Tests.swift */,
 				34E2D05A1CEA617F00DD34D0 /* Info.plist */,
 			);
 			path = "CC3 Tests";
@@ -258,6 +265,7 @@
 				34A963B41CE5160D00CD9B57 /* Compiler.swift in Sources */,
 				34A963B11CE5156B00CD9B57 /* Emulator.swift in Sources */,
 				34A9638E1CE50C7900CD9B57 /* main.swift in Sources */,
+				348EB6A11CEBC14B00ADF1C3 /* Binary.swift in Sources */,
 				34A963B21CE5156B00CD9B57 /* Spec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,8 +275,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				34E2D0621CEA633E00DD34D0 /* Compiler.swift in Sources */,
+				348EB6A31CEBD08900ADF1C3 /* Binary_Tests.swift in Sources */,
 				34E2D0611CEA633B00DD34D0 /* Emulator.swift in Sources */,
 				34E2D0601CEA633800DD34D0 /* Spec.swift in Sources */,
+				348EB6A41CEBD0CD00ADF1C3 /* Binary.swift in Sources */,
 				34E2D0761CEA710900DD34D0 /* Compiler_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +434,7 @@
 				34E2D05C1CEA617F00DD34D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
