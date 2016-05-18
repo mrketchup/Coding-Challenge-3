@@ -68,8 +68,20 @@ class Compiler_Tests: XCTestCase {
     
     func testCompileInvalidSyntax() {
         do {
-            let path = bundle.pathForResource("InvalidSyntax", ofType: "cc3")!
-            let compiler = try Compiler(filePath: path)
+            let compiler = Compiler(codeString: "derpyderp")
+            try compiler.compile()
+        } catch let error as Compiler.Error {
+            if case .InvalidSyntax(let line) = error {
+                XCTAssertEqual(line, 1)
+            } else {
+                XCTFail("\(error)")
+            }
+        } catch {
+            XCTFail("\(error)")
+        }
+        
+        do {
+            let compiler = Compiler(codeString: "raw 123 123")
             try compiler.compile()
         } catch let error as Compiler.Error {
             if case .InvalidSyntax(let line) = error {
@@ -84,8 +96,7 @@ class Compiler_Tests: XCTestCase {
     
     func testCompileUnknownMethod() {
         do {
-            let path = bundle.pathForResource("UnknownMethod", ofType: "cc3")!
-            let compiler = try Compiler(filePath: path)
+            let compiler = Compiler(codeString: "derp 1 2")
             try compiler.compile()
         } catch let error as Compiler.Error {
             if case .UnknownMethod(let method, let line) = error {
@@ -101,12 +112,39 @@ class Compiler_Tests: XCTestCase {
     
     func testCompileIllegalArgument() {
         do {
-            let path = bundle.pathForResource("IllegalArgument", ofType: "cc3")!
-            let compiler = try Compiler(filePath: path)
+            let compiler = Compiler(codeString: "add xx 0")
             try compiler.compile()
         } catch let error as Compiler.Error {
             if case .IllegalArgument(let argument, let line) = error {
                 XCTAssertEqual(argument, "xx")
+                XCTAssertEqual(line, 1)
+            } else {
+                XCTFail("\(error)")
+            }
+        } catch {
+            XCTFail("\(error)")
+        }
+        
+        do {
+            let compiler = Compiler(codeString: "set 5 99")
+            try compiler.compile()
+        } catch let error as Compiler.Error {
+            if case .IllegalArgument(let argument, let line) = error {
+                XCTAssertEqual(argument, "99")
+                XCTAssertEqual(line, 1)
+            } else {
+                XCTFail("\(error)")
+            }
+        } catch {
+            XCTFail("\(error)")
+        }
+        
+        do {
+            let compiler = Compiler(codeString: "raw 1234")
+            try compiler.compile()
+        } catch let error as Compiler.Error {
+            if case .IllegalArgument(let argument, let line) = error {
+                XCTAssertEqual(argument, "1234")
                 XCTAssertEqual(line, 1)
             } else {
                 XCTFail("\(error)")

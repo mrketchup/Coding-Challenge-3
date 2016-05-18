@@ -21,9 +21,6 @@
 		34E2D0681CEA644700DD34D0 /* Equal.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D0651CEA644700DD34D0 /* Equal.cc3 */; };
 		34E2D0691CEA644700DD34D0 /* Pretty Challenge.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D0661CEA644700DD34D0 /* Pretty Challenge.cc3 */; };
 		34E2D06B1CEA692400DD34D0 /* Test.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D06A1CEA692400DD34D0 /* Test.cc3 */; };
-		34E2D0701CEA6EFB00DD34D0 /* InvalidSyntax.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D06F1CEA6EFB00DD34D0 /* InvalidSyntax.cc3 */; };
-		34E2D0721CEA6F2000DD34D0 /* UnknownMethod.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D0711CEA6F2000DD34D0 /* UnknownMethod.cc3 */; };
-		34E2D0741CEA6F4200DD34D0 /* IllegalArgument.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D0731CEA6F4200DD34D0 /* IllegalArgument.cc3 */; };
 		34E2D0761CEA710900DD34D0 /* Compiler_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E2D0751CEA710900DD34D0 /* Compiler_Tests.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,9 +51,6 @@
 		34E2D0651CEA644700DD34D0 /* Equal.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Equal.cc3; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
 		34E2D0661CEA644700DD34D0 /* Pretty Challenge.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Pretty Challenge.cc3"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
 		34E2D06A1CEA692400DD34D0 /* Test.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test.cc3; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
-		34E2D06F1CEA6EFB00DD34D0 /* InvalidSyntax.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = InvalidSyntax.cc3; sourceTree = "<group>"; };
-		34E2D0711CEA6F2000DD34D0 /* UnknownMethod.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UnknownMethod.cc3; sourceTree = "<group>"; };
-		34E2D0731CEA6F4200DD34D0 /* IllegalArgument.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IllegalArgument.cc3; sourceTree = "<group>"; };
 		34E2D0751CEA710900DD34D0 /* Compiler_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compiler_Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,9 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				34E2D06A1CEA692400DD34D0 /* Test.cc3 */,
-				34E2D06F1CEA6EFB00DD34D0 /* InvalidSyntax.cc3 */,
-				34E2D0711CEA6F2000DD34D0 /* UnknownMethod.cc3 */,
-				34E2D0731CEA6F4200DD34D0 /* IllegalArgument.cc3 */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -245,13 +236,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34E2D0741CEA6F4200DD34D0 /* IllegalArgument.cc3 in Resources */,
 				34E2D0691CEA644700DD34D0 /* Pretty Challenge.cc3 in Resources */,
-				34E2D0701CEA6EFB00DD34D0 /* InvalidSyntax.cc3 in Resources */,
 				34E2D0681CEA644700DD34D0 /* Equal.cc3 in Resources */,
 				34E2D0671CEA644700DD34D0 /* Challenge.cc3 in Resources */,
 				34E2D06B1CEA692400DD34D0 /* Test.cc3 in Resources */,
-				34E2D0721CEA6F2000DD34D0 /* UnknownMethod.cc3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
