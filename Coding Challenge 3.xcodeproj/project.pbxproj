@@ -171,6 +171,7 @@
 				34A963861CE50C7900CD9B57 /* Sources */,
 				34A963871CE50C7900CD9B57 /* Frameworks */,
 				34A963881CE50C7900CD9B57 /* CopyFiles */,
+				343AE40F1CF3E41C00E25F86 /* Copy Binary */,
 			);
 			buildRules = (
 			);
@@ -247,6 +248,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		343AE40F1CF3E41C00E25F86 /* Copy Binary */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Binary";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp \"${CONFIGURATION_BUILD_DIR}/cc3\" \"${SRCROOT}/bin/cc3\"";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		34A963861CE50C7900CD9B57 /* Sources */ = {
