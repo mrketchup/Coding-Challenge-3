@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		343AE4111CF3E63B00E25F86 /* Test.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 343AE4101CF3E63B00E25F86 /* Test.cc3 */; };
+		343AE4141CF3E64900E25F86 /* Challenge.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 343AE4121CF3E64900E25F86 /* Challenge.cc3 */; };
+		343AE4151CF3E64900E25F86 /* Pretty Challenge.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 343AE4131CF3E64900E25F86 /* Pretty Challenge.cc3 */; };
+		343AE4171CF3E65400E25F86 /* Equal.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 343AE4161CF3E65400E25F86 /* Equal.cc3 */; };
 		3444DF1F1CED1EC900F29C12 /* Emulator_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3444DF1E1CED1EC900F29C12 /* Emulator_Tests.swift */; };
 		348EB6A11CEBC14B00ADF1C3 /* Binary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348EB6A01CEBC14B00ADF1C3 /* Binary.swift */; };
 		348EB6A31CEBD08900ADF1C3 /* Binary_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348EB6A21CEBD08900ADF1C3 /* Binary_Tests.swift */; };
@@ -18,10 +22,6 @@
 		34E2D0601CEA633800DD34D0 /* Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A963B01CE5156B00CD9B57 /* Spec.swift */; };
 		34E2D0611CEA633B00DD34D0 /* Emulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A963AF1CE5156B00CD9B57 /* Emulator.swift */; };
 		34E2D0621CEA633E00DD34D0 /* Compiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A963B31CE5160D00CD9B57 /* Compiler.swift */; };
-		34E2D0671CEA644700DD34D0 /* Challenge.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D0641CEA644700DD34D0 /* Challenge.cc3 */; };
-		34E2D0681CEA644700DD34D0 /* Equal.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D0651CEA644700DD34D0 /* Equal.cc3 */; };
-		34E2D0691CEA644700DD34D0 /* Pretty Challenge.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D0661CEA644700DD34D0 /* Pretty Challenge.cc3 */; };
-		34E2D06B1CEA692400DD34D0 /* Test.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E2D06A1CEA692400DD34D0 /* Test.cc3 */; };
 		34E2D0761CEA710900DD34D0 /* Compiler_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E2D0751CEA710900DD34D0 /* Compiler_Tests.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +38,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		343AE4101CF3E63B00E25F86 /* Test.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Test.cc3; path = "Test Files/Test.cc3"; sourceTree = SOURCE_ROOT; };
+		343AE4121CF3E64900E25F86 /* Challenge.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Challenge.cc3; path = "Test Files/Challenge.cc3"; sourceTree = SOURCE_ROOT; };
+		343AE4131CF3E64900E25F86 /* Pretty Challenge.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Pretty Challenge.cc3"; path = "Test Files/Pretty Challenge.cc3"; sourceTree = SOURCE_ROOT; };
+		343AE4161CF3E65400E25F86 /* Equal.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Equal.cc3; path = "Test Files/Equal.cc3"; sourceTree = SOURCE_ROOT; };
 		3444DF1E1CED1EC900F29C12 /* Emulator_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emulator_Tests.swift; sourceTree = "<group>"; };
 		348EB6A01CEBC14B00ADF1C3 /* Binary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binary.swift; sourceTree = "<group>"; };
 		348EB6A21CEBD08900ADF1C3 /* Binary_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binary_Tests.swift; sourceTree = "<group>"; };
@@ -49,10 +53,6 @@
 		34A963B51CE5194100CD9B57 /* CC3 Lang Spec.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "CC3 Lang Spec.md"; sourceTree = "<group>"; };
 		34E2D0561CEA617F00DD34D0 /* CC3 Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CC3 Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E2D05A1CEA617F00DD34D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
-		34E2D0641CEA644700DD34D0 /* Challenge.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Challenge.cc3; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
-		34E2D0651CEA644700DD34D0 /* Equal.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Equal.cc3; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
-		34E2D0661CEA644700DD34D0 /* Pretty Challenge.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Pretty Challenge.cc3"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
-		34E2D06A1CEA692400DD34D0 /* Test.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test.cc3; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
 		34E2D0751CEA710900DD34D0 /* Compiler_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compiler_Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,7 +139,7 @@
 		34E2D06C1CEA6E8800DD34D0 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				34E2D06A1CEA692400DD34D0 /* Test.cc3 */,
+				343AE4101CF3E63B00E25F86 /* Test.cc3 */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -147,8 +147,8 @@
 		34E2D06D1CEA6E9200DD34D0 /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
-				34E2D0641CEA644700DD34D0 /* Challenge.cc3 */,
-				34E2D0661CEA644700DD34D0 /* Pretty Challenge.cc3 */,
+				343AE4121CF3E64900E25F86 /* Challenge.cc3 */,
+				343AE4131CF3E64900E25F86 /* Pretty Challenge.cc3 */,
 			);
 			name = Challenge;
 			sourceTree = "<group>";
@@ -156,7 +156,7 @@
 		34E2D06E1CEA6EA200DD34D0 /* Fun */ = {
 			isa = PBXGroup;
 			children = (
-				34E2D0651CEA644700DD34D0 /* Equal.cc3 */,
+				343AE4161CF3E65400E25F86 /* Equal.cc3 */,
 			);
 			name = Fun;
 			sourceTree = "<group>";
@@ -240,10 +240,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34E2D0691CEA644700DD34D0 /* Pretty Challenge.cc3 in Resources */,
-				34E2D0681CEA644700DD34D0 /* Equal.cc3 in Resources */,
-				34E2D0671CEA644700DD34D0 /* Challenge.cc3 in Resources */,
-				34E2D06B1CEA692400DD34D0 /* Test.cc3 in Resources */,
+				343AE4151CF3E64900E25F86 /* Pretty Challenge.cc3 in Resources */,
+				343AE4111CF3E63B00E25F86 /* Test.cc3 in Resources */,
+				343AE4171CF3E65400E25F86 /* Equal.cc3 in Resources */,
+				343AE4141CF3E64900E25F86 /* Challenge.cc3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
