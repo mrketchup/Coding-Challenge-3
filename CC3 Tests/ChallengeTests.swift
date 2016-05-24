@@ -8,9 +8,9 @@
 
 import XCTest
 
-class Challenge_Tests: XCTestCase {
+class ChallengeTests: XCTestCase {
 
-    let bundle = NSBundle(forClass: Emulator_Tests.classForCoder())
+    let bundle = NSBundle(forClass: ChallengeTests.classForCoder())
     
     func testCodingChallenge() {
         do {

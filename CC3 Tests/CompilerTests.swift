@@ -8,9 +8,9 @@
 
 import XCTest
 
-class Compiler_Tests: XCTestCase {
+class CompilerTests: XCTestCase {
 
-    let bundle = NSBundle(forClass: Compiler_Tests.classForCoder())
+    let bundle = NSBundle(forClass: CompilerTests.classForCoder())
     
     func testInitFromPath() {
         do {

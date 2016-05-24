@@ -8,7 +8,7 @@
 
 import XCTest
 
-class Emulator_Tests: XCTestCase {
+class EmulatorTests: XCTestCase {
     
     func testEmulatorSuccess() {
         do {

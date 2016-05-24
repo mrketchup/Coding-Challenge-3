@@ -22,7 +22,7 @@ extension NSData {
     
 }
 
-class Binary_Tests: XCTestCase {
+class BinaryTests: XCTestCase {
 
     func testBinaryWriterSuccess() {
         do {
