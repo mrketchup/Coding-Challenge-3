@@ -24,6 +24,57 @@ class ChallengeTests: XCTestCase {
         } catch {
             XCTFail("\(error)")
         }
+        
+        do {
+            let path = bundle.pathForResource("Pretty Challenge", ofType: "cc3")!
+            let compiler = try Compiler(filePath: path)
+            let instructions = try compiler.compile()
+            let emulator = Emulator()
+            let executions = try emulator.execute(instructions)
+            XCTAssertEqual(executions, 16)
+            XCTAssertEqual(emulator.registers, [0, 0, 0, 0, 0, 0, 0, 9, 0, 999])
+        } catch {
+            XCTFail("\(error)")
+        }
+    }
+    
+    func testCodingChallenge42() {
+        do {
+            let path = bundle.pathForResource("Challenge42", ofType: "cc3")!
+            let compiler = try Compiler(filePath: path)
+            let instructions = try compiler.compile()
+            let emulator = Emulator()
+            let executions = try emulator.execute(instructions)
+            XCTAssertEqual(executions, 42)
+        } catch {
+            XCTFail("\(error)")
+        }
+    }
+    
+    func testCodingChallenge1000() {
+        do {
+            let path = bundle.pathForResource("Challenge1000", ofType: "cc3")!
+            let compiler = try Compiler(filePath: path)
+            let instructions = try compiler.compile()
+            let emulator = Emulator()
+            let executions = try emulator.execute(instructions)
+            XCTAssertEqual(executions, 1000)
+        } catch {
+            XCTFail("\(error)")
+        }
+    }
+    
+    func testCodingChallenge1234() {
+        do {
+            let path = bundle.pathForResource("Challenge1234", ofType: "cc3")!
+            let compiler = try Compiler(filePath: path)
+            let instructions = try compiler.compile()
+            let emulator = Emulator()
+            let executions = try emulator.execute(instructions)
+            XCTAssertEqual(executions, 1234)
+        } catch {
+            XCTFail("\(error)")
+        }
     }
 
 }

@@ -12,6 +12,9 @@
 		343AE4151CF3E64900E25F86 /* Pretty Challenge.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 343AE4131CF3E64900E25F86 /* Pretty Challenge.cc3 */; };
 		343AE4171CF3E65400E25F86 /* Equal.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 343AE4161CF3E65400E25F86 /* Equal.cc3 */; };
 		3444DF1F1CED1EC900F29C12 /* EmulatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3444DF1E1CED1EC900F29C12 /* EmulatorTests.swift */; };
+		345BF7651CF78524008A8C23 /* Challenge42.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 345BF7641CF78524008A8C23 /* Challenge42.cc3 */; };
+		345BF7671CF788C9008A8C23 /* Challenge1000.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 345BF7661CF788C9008A8C23 /* Challenge1000.cc3 */; };
+		345BF7691CF78953008A8C23 /* Challenge1234.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 345BF7681CF78953008A8C23 /* Challenge1234.cc3 */; };
 		348EB6A11CEBC14B00ADF1C3 /* Binary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348EB6A01CEBC14B00ADF1C3 /* Binary.swift */; };
 		348EB6A31CEBD08900ADF1C3 /* BinaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348EB6A21CEBD08900ADF1C3 /* BinaryTests.swift */; };
 		348EB6A41CEBD0CD00ADF1C3 /* Binary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348EB6A01CEBC14B00ADF1C3 /* Binary.swift */; };
@@ -44,6 +47,9 @@
 		343AE4131CF3E64900E25F86 /* Pretty Challenge.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Pretty Challenge.cc3"; path = "Test Files/Pretty Challenge.cc3"; sourceTree = SOURCE_ROOT; };
 		343AE4161CF3E65400E25F86 /* Equal.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Equal.cc3; path = "Test Files/Equal.cc3"; sourceTree = SOURCE_ROOT; };
 		3444DF1E1CED1EC900F29C12 /* EmulatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmulatorTests.swift; sourceTree = "<group>"; };
+		345BF7641CF78524008A8C23 /* Challenge42.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Challenge42.cc3; path = "Test Files/Challenge42.cc3"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		345BF7661CF788C9008A8C23 /* Challenge1000.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Challenge1000.cc3; path = "Test Files/Challenge1000.cc3"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		345BF7681CF78953008A8C23 /* Challenge1234.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Challenge1234.cc3; path = "Test Files/Challenge1234.cc3"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
 		348EB6A01CEBC14B00ADF1C3 /* Binary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binary.swift; sourceTree = "<group>"; };
 		348EB6A21CEBD08900ADF1C3 /* BinaryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryTests.swift; sourceTree = "<group>"; };
 		34A9638A1CE50C7900CD9B57 /* cc3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cc3; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +158,9 @@
 			children = (
 				343AE4121CF3E64900E25F86 /* Challenge.cc3 */,
 				343AE4131CF3E64900E25F86 /* Pretty Challenge.cc3 */,
+				345BF7641CF78524008A8C23 /* Challenge42.cc3 */,
+				345BF7661CF788C9008A8C23 /* Challenge1000.cc3 */,
+				345BF7681CF78953008A8C23 /* Challenge1234.cc3 */,
 			);
 			name = Challenge;
 			sourceTree = "<group>";
@@ -244,8 +253,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				343AE4151CF3E64900E25F86 /* Pretty Challenge.cc3 in Resources */,
+				345BF7651CF78524008A8C23 /* Challenge42.cc3 in Resources */,
+				345BF7671CF788C9008A8C23 /* Challenge1000.cc3 in Resources */,
 				343AE4111CF3E63B00E25F86 /* Test.cc3 in Resources */,
 				343AE4171CF3E65400E25F86 /* Equal.cc3 in Resources */,
+				345BF7691CF78953008A8C23 /* Challenge1234.cc3 in Resources */,
 				343AE4141CF3E64900E25F86 /* Challenge.cc3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,15 @@
+# Prepare register 0 for looping
+
+set 4 3  # Set address to read
+set 5 4  # Set address to leap over raw data
+goto 5 5 # Skip the raw data
+raw 982
+read 0 4
+
+
+# Loop on register 0
+
+set 5 6 #5
+add 0 1
+goto 5 0
+exit
