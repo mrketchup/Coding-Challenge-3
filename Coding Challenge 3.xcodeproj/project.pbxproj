@@ -42,10 +42,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		343AE4101CF3E63B00E25F86 /* Test.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Test.cc3; path = "Test Files/Test.cc3"; sourceTree = SOURCE_ROOT; };
-		343AE4121CF3E64900E25F86 /* Challenge.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Challenge.cc3; path = "Test Files/Challenge.cc3"; sourceTree = SOURCE_ROOT; };
-		343AE4131CF3E64900E25F86 /* Pretty Challenge.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Pretty Challenge.cc3"; path = "Test Files/Pretty Challenge.cc3"; sourceTree = SOURCE_ROOT; };
-		343AE4161CF3E65400E25F86 /* Equal.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Equal.cc3; path = "Test Files/Equal.cc3"; sourceTree = SOURCE_ROOT; };
+		343AE4101CF3E63B00E25F86 /* Test.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Test.cc3; path = "Test Files/Test.cc3"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		343AE4121CF3E64900E25F86 /* Challenge.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Challenge.cc3; path = "Test Files/Challenge.cc3"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		343AE4131CF3E64900E25F86 /* Pretty Challenge.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Pretty Challenge.cc3"; path = "Test Files/Pretty Challenge.cc3"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		343AE4161CF3E65400E25F86 /* Equal.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Equal.cc3; path = "Test Files/Equal.cc3"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
 		3444DF1E1CED1EC900F29C12 /* EmulatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmulatorTests.swift; sourceTree = "<group>"; };
 		345BF7641CF78524008A8C23 /* Challenge42.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Challenge42.cc3; path = "Test Files/Challenge42.cc3"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
 		345BF7661CF788C9008A8C23 /* Challenge1000.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Challenge1000.cc3; path = "Test Files/Challenge1000.cc3"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
