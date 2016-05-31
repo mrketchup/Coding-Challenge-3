@@ -277,7 +277,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp \"${CONFIGURATION_BUILD_DIR}/cc3\" \"${SRCROOT}/bin/cc3\"";
+			shellScript = "mkdir -p \"${SRCROOT}/bin\"\ncp \"${CONFIGURATION_BUILD_DIR}/cc3\" \"${SRCROOT}/bin/cc3\"";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
