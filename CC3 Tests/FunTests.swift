@@ -141,18 +141,18 @@ class FunTests: XCTestCase {
                 let path = bundle.pathForResource("Seed", ofType: "cc3")!
                 let compiler = try Compiler(filePath: path)
                 return try compiler.compile()
-                }()
+            }()
             
             let rand: [Int] = try {
                 let path = bundle.pathForResource("Rand", ofType: "cc3")!
                 let compiler = try Compiler(filePath: path)
                 return try compiler.compile()
-                }()
+            }()
             
             let emulator = Emulator()
             try emulator.execute(seed)
             try emulator.execute(rand)
-            XCTAssertEqual(emulator.registers[0], 919)
+            XCTAssertEqual(emulator.registers[0], 499)
         } catch {
             XCTFail("\(error)")
         }

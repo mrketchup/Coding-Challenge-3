@@ -14,8 +14,8 @@ goto 9 9
 
 # Raw values
 
-raw 241 #a
-raw 419 #c
+raw 981 #a
+raw 999 #c
 
 
 #Load memory into registers
