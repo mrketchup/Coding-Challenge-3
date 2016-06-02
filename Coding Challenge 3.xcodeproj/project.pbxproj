@@ -27,6 +27,11 @@
 		34E2D0611CEA633B00DD34D0 /* Emulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A963AF1CE5156B00CD9B57 /* Emulator.swift */; };
 		34E2D0621CEA633E00DD34D0 /* Compiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A963B31CE5160D00CD9B57 /* Compiler.swift */; };
 		34E2D0761CEA710900DD34D0 /* CompilerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E2D0751CEA710900DD34D0 /* CompilerTests.swift */; };
+		34F0BC021CFF820600076429 /* GreaterThanOrEqual.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34F0BC011CFF820600076429 /* GreaterThanOrEqual.cc3 */; };
+		34F0BC041CFF89ED00076429 /* FunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BC031CFF89ED00076429 /* FunTests.swift */; };
+		34F0BC061CFF8ECF00076429 /* Modulus.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34F0BC051CFF8ECF00076429 /* Modulus.cc3 */; };
+		34F0BC081D008BFD00076429 /* Rand.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34F0BC071D008BFD00076429 /* Rand.cc3 */; };
+		34F0BC0A1D00A61800076429 /* Seed.cc3 in Resources */ = {isa = PBXBuildFile; fileRef = 34F0BC091D00A61800076429 /* Seed.cc3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +67,11 @@
 		34E2D0561CEA617F00DD34D0 /* CC3 Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CC3 Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E2D05A1CEA617F00DD34D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34E2D0751CEA710900DD34D0 /* CompilerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompilerTests.swift; sourceTree = "<group>"; };
+		34F0BC011CFF820600076429 /* GreaterThanOrEqual.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GreaterThanOrEqual.cc3; path = "Test Files/GreaterThanOrEqual.cc3"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		34F0BC031CFF89ED00076429 /* FunTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FunTests.swift; path = "CC3 Tests/FunTests.swift"; sourceTree = SOURCE_ROOT; };
+		34F0BC051CFF8ECF00076429 /* Modulus.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Modulus.cc3; path = "Test Files/Modulus.cc3"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		34F0BC071D008BFD00076429 /* Rand.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Rand.cc3; path = "Test Files/Rand.cc3"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		34F0BC091D00A61800076429 /* Seed.cc3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Seed.cc3; path = "Test Files/Seed.cc3"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +140,7 @@
 				348EB6A21CEBD08900ADF1C3 /* BinaryTests.swift */,
 				3444DF1E1CED1EC900F29C12 /* EmulatorTests.swift */,
 				34BD9D481CF4B3B300C01820 /* ChallengeTests.swift */,
+				34F0BC031CFF89ED00076429 /* FunTests.swift */,
 			);
 			path = "CC3 Tests";
 			sourceTree = "<group>";
@@ -169,6 +180,10 @@
 			isa = PBXGroup;
 			children = (
 				343AE4161CF3E65400E25F86 /* Equal.cc3 */,
+				34F0BC011CFF820600076429 /* GreaterThanOrEqual.cc3 */,
+				34F0BC051CFF8ECF00076429 /* Modulus.cc3 */,
+				34F0BC071D008BFD00076429 /* Rand.cc3 */,
+				34F0BC091D00A61800076429 /* Seed.cc3 */,
 			);
 			name = Fun;
 			sourceTree = "<group>";
@@ -252,9 +267,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34F0BC0A1D00A61800076429 /* Seed.cc3 in Resources */,
+				34F0BC081D008BFD00076429 /* Rand.cc3 in Resources */,
 				343AE4151CF3E64900E25F86 /* Pretty Challenge.cc3 in Resources */,
 				345BF7651CF78524008A8C23 /* Challenge42.cc3 in Resources */,
 				345BF7671CF788C9008A8C23 /* Challenge1000.cc3 in Resources */,
+				34F0BC021CFF820600076429 /* GreaterThanOrEqual.cc3 in Resources */,
+				34F0BC061CFF8ECF00076429 /* Modulus.cc3 in Resources */,
 				343AE4111CF3E63B00E25F86 /* Test.cc3 in Resources */,
 				343AE4171CF3E65400E25F86 /* Equal.cc3 in Resources */,
 				345BF7691CF78953008A8C23 /* Challenge1234.cc3 in Resources */,
@@ -304,6 +323,7 @@
 				34E2D0611CEA633B00DD34D0 /* Emulator.swift in Sources */,
 				34E2D0601CEA633800DD34D0 /* Spec.swift in Sources */,
 				348EB6A41CEBD0CD00ADF1C3 /* Binary.swift in Sources */,
+				34F0BC041CFF89ED00076429 /* FunTests.swift in Sources */,
 				34BD9D491CF4B3B300C01820 /* ChallengeTests.swift in Sources */,
 				34E2D0761CEA710900DD34D0 /* CompilerTests.swift in Sources */,
 				3444DF1F1CED1EC900F29C12 /* EmulatorTests.swift in Sources */,

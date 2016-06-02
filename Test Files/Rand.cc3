@@ -1,0 +1,33 @@
+#
+# Input:
+# Register 0 contains the seed
+#
+# Output:
+# Register 0 will contain a random number
+#
+
+#Jump over the raw values
+
+set  9 4 #0
+goto 9 9
+
+
+# Raw values
+
+raw 241 #a
+raw 419 #c
+
+
+#Load memory into registers
+
+set  9 2
+read 1 9 #5
+add  9 1
+read 2 9
+
+
+# Calculate the pre-modulus random number
+mult_reg 0 1 # * a
+add_reg  0 2 # + c
+
+exit #10

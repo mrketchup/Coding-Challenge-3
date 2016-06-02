@@ -1,0 +1,43 @@
+#
+# Input:
+# Register 0 contains the first number
+# Register 1 contains the second number
+#
+# Output:
+# Register 9 will contain 1 if the first number >= second number, 0 if not
+#
+
+# Setup our goto registers
+
+set 2 3 #0 #Point to line of code for looping
+set 3 8 #Point register to check second number line
+set 4 9 #Pointer to adjust to true or false path
+
+
+# Add 1 to each number until one of them becomes 0
+
+add 0 1
+add 1 1
+
+
+# Make checks for 0
+
+goto 3 0 #5 #Jump to check second number
+add  4 2 #Move pointer to true path
+goto 4 4 #The first number is greater than or equal!
+
+goto 2 1
+add  4 4 #Move pointer to false path
+goto 4 4 #10 #The second number is greater!
+
+
+# Set register 9 to 1 (true) and exit
+
+set 9 1
+exit
+
+
+# Set register 9 to 0 (false) and exit
+
+set 9 0
+exit

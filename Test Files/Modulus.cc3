@@ -1,0 +1,73 @@
+#
+# Input:
+# Register 0 contains the number
+# Register 1 contains the divisor
+#
+# Output:
+# Register 9 will contain number % divisor
+#
+
+# Set Register 2 to compliment of the divisor
+
+set_reg 3 1 #0
+set     2 0
+set     4 3 #Point to the next line of code
+
+add  2 1
+add  3 1
+goto 4 3 #5
+
+
+# Setup our goto registers
+
+set 3 9 #Point to line of code for >= looping
+add 3 9
+add 3 1
+
+set 4 9 #Point to line of code for < check
+add 4 9 #10
+add 4 6
+
+set 5 9 #Point to line for while loop
+add 5 5
+
+
+# while number >= divisor
+
+set  8 9 #Pointer to adjust to true or false path #<-- Line for while loop
+mult 8 3 #15
+
+set_reg 6 0
+set_reg 7 1
+set     9 0
+
+
+# Add 1 to each number until one of them becomes 0
+
+add 6 1 #<-- Line of code for >= looping
+add 7 1 #20
+
+
+# Make checks for 0
+
+goto 4 6 #Jump to check second number
+add  8 0 #Move pointer to true path
+goto 8 8 #The first number is greater than or equal!
+
+goto 3 7 #<-- Line of code for < check
+add  8 2 #25 #Move pointer to false path
+goto 8 8 #The second number is greater!
+
+
+# Set register 9 to 1 (true)
+
+set     9 1 #<-- True path
+add_reg 0 2 #number -= divisor
+
+goto 5 9 #Loop if still true #<-- False path
+
+
+# Move the remainder to Register 9 and exit
+
+set_reg 9 0 #30
+exit
