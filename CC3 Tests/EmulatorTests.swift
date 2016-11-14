@@ -25,8 +25,8 @@ class EmulatorTests: XCTestCase {
         do {
             let emulator = Emulator()
             try emulator.execute([1234])
-        } catch let error as Emulator.Error {
-            if case .InvalidInstruction(let instruction, let address) = error {
+        } catch let error as Emulator.EmulatorError {
+            if case .invalidInstruction(let instruction, let address) = error {
                 XCTAssertEqual(instruction, 1234)
                 XCTAssertEqual(address, 0)
             } else {
@@ -39,8 +39,8 @@ class EmulatorTests: XCTestCase {
         do {
             let emulator = Emulator()
             try emulator.execute([111])
-        } catch let error as Emulator.Error {
-            if case .InvalidInstruction(let instruction, let address) = error {
+        } catch let error as Emulator.EmulatorError {
+            if case .invalidInstruction(let instruction, let address) = error {
                 XCTAssertEqual(instruction, 111)
                 XCTAssertEqual(address, 0)
             } else {
@@ -55,8 +55,8 @@ class EmulatorTests: XCTestCase {
         do {
             let emulator = Emulator()
             try emulator.execute([000])
-        } catch let error as Emulator.Error {
-            if case .MemoryOutOfBounds = error {
+        } catch let error as Emulator.EmulatorError {
+            if case .memoryOutOfBounds = error {
                 XCTAssertTrue(true)
             } else {
                 XCTFail("\(error)")

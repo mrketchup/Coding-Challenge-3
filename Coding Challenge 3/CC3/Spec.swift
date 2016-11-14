@@ -14,16 +14,16 @@ enum Architecture {
     static let RegisterCount = 10
     
     enum Method: Int {
-        case Goto = 0
-        case Halt
-        case Set
-        case Add
-        case Multiply
-        case SetRegister
-        case AddRegister
-        case MultiplyRegister
-        case Read
-        case Write
+        case goto = 0
+        case halt
+        case set
+        case add
+        case multiply
+        case setRegister
+        case addRegister
+        case multiplyRegister
+        case read
+        case write
     }
     
 }
@@ -52,15 +52,15 @@ enum Language {
         
         var architectureMethod: Architecture.Method {
             switch self {
-            case .Goto: return .Goto
-            case .Set: return .Set
-            case .Add: return .Add
-            case .Multiply: return .Multiply
-            case .SetRegister: return .SetRegister
-            case .AddRegister: return .AddRegister
-            case .MultiplyRegister: return .MultiplyRegister
-            case .Read: return .Read
-            case .Write: return .Write
+            case .Goto: return .goto
+            case .Set: return .set
+            case .Add: return .add
+            case .Multiply: return .multiply
+            case .SetRegister: return .setRegister
+            case .AddRegister: return .addRegister
+            case .MultiplyRegister: return .multiplyRegister
+            case .Read: return .read
+            case .Write: return .write
             }
         }
         

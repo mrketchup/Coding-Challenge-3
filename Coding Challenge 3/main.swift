@@ -8,18 +8,18 @@
 
 import Foundation
 
-enum Error: ErrorType {
-    case FileNotFound
+enum CC3Error: Error {
+    case fileNotFound
 }
 
 let legalArguments = ["-e", "--execute", "-c", "--compile"]
-let dir = NSFileManager.defaultManager().currentDirectoryPath
+let dir = FileManager.default.currentDirectoryPath
 
 var arguments: [String: [String]] = [:]
 var currentArgument = "_"
 
-for index in 1..<Process.arguments.count {
-    let argument = Process.arguments[index]
+for index in 1..<CommandLine.arguments.count {
+    let argument = CommandLine.arguments[index]
     
     if argument.hasPrefix("-") || argument.hasPrefix("--") {
         guard legalArguments.contains(argument) else {
@@ -51,19 +51,19 @@ for arg in arguments.keys {
 }
 
 let compileFiles = (arguments["-c"] ?? []) + (arguments["--compile"] ?? [])
-let executeFiles = (arguments["-e"] ?? []) + (arguments["--execute"] ?? []) + (arguments["_"] ?? [])
+let executeFiles = (arguments["-e"] ?? []) + ((arguments["--execute"] ?? []) + (arguments["_"] ?? []))
 
 do {
     for filePath in compileFiles {
         let fileName = (filePath as NSString).lastPathComponent
-        let binName = (fileName as NSString).stringByDeletingPathExtension
+        let binName = (fileName as NSString).deletingPathExtension
         let binPath = "\(dir)/\(binName)"
         print("Compiling '\(fileName)' into '\(binName)'...")
         
         let compiler = try Compiler(filePath: filePath)
         let instructions = try compiler.compile()
         let data = try BinaryWriter().encode(instructions: instructions)
-        data.writeToFile(binPath, atomically: true)
+        try? data.write(to: URL(fileURLWithPath: binPath), options: [.atomic])
     }
     
     if compileFiles.count > 0 {
@@ -81,8 +81,8 @@ do {
         let fileName = (filePath as NSString).lastPathComponent
         print("Executing '\(fileName)'...")
         
-        guard let data = NSData(contentsOfFile: filePath) else {
-            throw Error.FileNotFound
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)) else {
+            throw CC3Error.fileNotFound
         }
         
         let instructions = try BinaryReader().decode(data: data)

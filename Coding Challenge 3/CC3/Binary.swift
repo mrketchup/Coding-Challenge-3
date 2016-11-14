@@ -10,27 +10,27 @@ import Foundation
 
 class BinaryWriter {
     
-    enum Error: ErrorType {
-        case TooManyInstructions(Int)
-        case InvalidInstruction(Int, index: Int)
+    enum BinaryWriterError: Error {
+        case tooManyInstructions(Int)
+        case invalidInstruction(Int, index: Int)
     }
     
-    private var data = NSMutableData()
+    private var data = Data()
     private var outByte: UInt8 = 0
     private var outCount = 0
     
-    func encode(instructions instructions: [Int]) throws -> NSData {
-        data = NSMutableData()
+    func encode(instructions: [Int]) throws -> Data {
+        data = Data()
         outByte = 0
         outCount = 0
         
         guard instructions.count <= Architecture.RamSize else {
-            throw Error.TooManyInstructions(instructions.count)
+            throw BinaryWriterError.tooManyInstructions(instructions.count)
         }
         
         for index in 0..<instructions.count {
             guard instructions[index] < Architecture.WordSize else {
-                throw Error.InvalidInstruction(instructions[index], index: index)
+                throw BinaryWriterError.invalidInstruction(instructions[index], index: index)
             }
             
             for bit in binaryArray(UInt16(instructions[index])) {
@@ -39,10 +39,10 @@ class BinaryWriter {
         }
         
         flush()
-        return data
+        return data as Data
     }
     
-    private func binaryArray(instruction: UInt16) -> [Bool] {
+    private func binaryArray(_ instruction: UInt16) -> [Bool] {
         return [
             instruction & 0b1000000000 > 0,
             instruction & 0b0100000000 > 0,
@@ -57,9 +57,9 @@ class BinaryWriter {
         ]
     }
     
-    private func write(bit bit: Bool) {
+    private func write(bit: Bool) {
         if outCount == 8 {
-            data.appendBytes(&outByte, length: 1)
+            data.append(&outByte, count: 1)
             outCount = 0
         }
         
@@ -76,7 +76,7 @@ class BinaryWriter {
             outByte <<= UInt8(8 - outCount)
         }
         
-        data.appendBytes(&outByte, length: 1)
+        data.append(&outByte, count: 1)
     }
     
 }
@@ -84,23 +84,23 @@ class BinaryWriter {
 
 class BinaryReader {
     
-    enum Error: ErrorType {
-        case InstructionOverflow
+    enum BinaryReaderError: Error {
+        case instructionOverflow
     }
     
-    private var pointer: UnsafePointer<UInt8> = nil
+    private var pointer: UnsafePointer<UInt8>? = nil
     private var inByte: UInt8 = 0
     private var inCount = 8
     
-    func decode(data data: NSData) throws -> [Int] {
-        pointer = UnsafePointer<UInt8>(data.bytes)
+    func decode(data: Data) throws -> [Int] {
+        pointer = (data as NSData).bytes.bindMemory(to: UInt8.self, capacity: data.count)
         inByte = 0
         inCount = 8
         
         var instructions: [Int] = []
         var buffer: [Bool] = []
         
-        for _ in 0..<(data.length * 8) {
+        for _ in 0..<(data.count * 8) {
             buffer.append(readBit())
             
             if buffer.count == Architecture.DigitSize {
@@ -113,7 +113,7 @@ class BinaryReader {
                 buffer = []
                 instructions.append(instruction)
                 if instructions.count > Architecture.RamSize {
-                    throw Error.InstructionOverflow
+                    throw BinaryReaderError.instructionOverflow
                 }
             }
         }
@@ -124,8 +124,8 @@ class BinaryReader {
     private func readBit() -> Bool {
         if inCount == 8 {
             inCount = 0
-            inByte = pointer.memory
-            pointer = pointer.successor()
+            inByte = pointer?.pointee ?? 0
+            pointer = pointer?.successor()
         }
         
         let bit = inByte & 0b10000000

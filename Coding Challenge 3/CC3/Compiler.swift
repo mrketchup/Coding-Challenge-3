@@ -10,31 +10,31 @@ import Foundation
 
 class Compiler {
     
-    enum Error: ErrorType {
-        case InvalidFileData
-        case InvalidSyntax(line: Int)
-        case UnknownMethod(String, line: Int)
-        case IllegalArgument(String, line: Int)
+    enum CompilerError: Error {
+        case invalidFileData
+        case invalidSyntax(line: Int)
+        case unknownMethod(String, line: Int)
+        case illegalArgument(String, line: Int)
     }
     
     let lines: [String]
     
     convenience init(filePath: String) throws {
-        let codeString = try String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding)
+        let codeString = try String(contentsOfFile: filePath, encoding: .utf8)
         self.init(codeString: codeString)
     }
     
-    convenience init(fileData: NSData) throws {
-        guard let codeString = String(data: fileData, encoding: NSUTF8StringEncoding) else {
-            throw Error.InvalidFileData
+    convenience init(fileData: Data) throws {
+        guard let codeString = String(data: fileData, encoding: .utf8) else {
+            throw CompilerError.invalidFileData
         }
         
         self.init(codeString: codeString)
     }
     
     init(codeString: String) {
-        let rawLines = codeString.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
-        lines = rawLines.map { $0.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) }
+        let rawLines = codeString.components(separatedBy: CharacterSet.newlines)
+        lines = rawLines.map { $0.trimmingCharacters(in: CharacterSet.whitespaces) }
     }
     
     func compile() throws -> [Int] {
@@ -70,59 +70,59 @@ class Compiler {
         return instructions
     }
     
-    private func stripComments(line: Int, rawCode: String) throws -> String {
-        let split = rawCode.componentsSeparatedByString(Language.CommentSymbol)
+    private func stripComments(_ line: Int, rawCode: String) throws -> String {
+        let split = rawCode.components(separatedBy: Language.CommentSymbol)
         
-        guard let code = split.first?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) else {
-            throw Error.InvalidSyntax(line: line)
+        guard let code = split.first?.trimmingCharacters(in: CharacterSet.whitespaces) else {
+            throw CompilerError.invalidSyntax(line: line)
         }
         
         return code
     }
     
-    private func splitLine(line: Int, code: String) throws -> (Language.Method, Int, Int) {
-        let parts = code.componentsSeparatedByString(" ").filter { !$0.isEmpty }
+    private func splitLine(_ line: Int, code: String) throws -> (Language.Method, Int, Int) {
+        let parts = code.components(separatedBy: " ").filter { !$0.isEmpty }
         
         guard parts.count == 3 else {
-            throw Error.InvalidSyntax(line: line)
+            throw CompilerError.invalidSyntax(line: line)
         }
         
         guard let method = Language.Method(rawValue: parts[0]) else {
-            throw Error.UnknownMethod(parts[0], line: line)
+            throw CompilerError.unknownMethod(parts[0], line: line)
         }
         
         let (arg1, arg2) = try parseArgs(line, arg1String: parts[1], arg2String: parts[2])
         return (method, arg1, arg2)
     }
     
-    private func parseArgs(line: Int, arg1String: String, arg2String: String) throws -> (Int, Int) {
-        guard let arg1 = Int(arg1String) where (0..<Architecture.DigitSize).contains(arg1) else {
-            throw Error.IllegalArgument("\(arg1String)", line: line)
+    private func parseArgs(_ line: Int, arg1String: String, arg2String: String) throws -> (Int, Int) {
+        guard let arg1 = Int(arg1String), (0..<Architecture.DigitSize).contains(arg1) else {
+            throw CompilerError.illegalArgument("\(arg1String)", line: line)
         }
         
-        guard let arg2 = Int(arg2String) where (0..<Architecture.DigitSize).contains(arg2) else {
-            throw Error.IllegalArgument("\(arg2String)", line: line)
+        guard let arg2 = Int(arg2String), (0..<Architecture.DigitSize).contains(arg2) else {
+            throw CompilerError.illegalArgument("\(arg2String)", line: line)
         }
         
         return (arg1, arg2)
     }
     
-    private func parseRaw(line: Int, code: String) throws -> Int? {
+    private func parseRaw(_ line: Int, code: String) throws -> Int? {
         guard code.hasPrefix(Language.SpecialMethod.Raw) else {
-            guard let rawCode = Int(code) where (0..<Architecture.WordSize).contains(rawCode) else {
+            guard let rawCode = Int(code), (0..<Architecture.WordSize).contains(rawCode) else {
                 return nil
             }
             
             return rawCode
         }
         
-        let parts = code.componentsSeparatedByString(" ").filter { !$0.isEmpty }
+        let parts = code.components(separatedBy: " ").filter { !$0.isEmpty }
         guard parts.count == 2 else {
-            throw Error.InvalidSyntax(line: line)
+            throw CompilerError.invalidSyntax(line: line)
         }
         
-        guard let rawCode = Int(parts[1]) where (0..<Architecture.WordSize).contains(rawCode) else {
-            throw Error.IllegalArgument("\(parts[1])", line: line)
+        guard let rawCode = Int(parts[1]), (0..<Architecture.WordSize).contains(rawCode) else {
+            throw CompilerError.illegalArgument("\(parts[1])", line: line)
         }
         
         return rawCode

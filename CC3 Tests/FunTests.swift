@@ -10,14 +10,14 @@ import XCTest
 
 class FunTests: XCTestCase {
 
-    let bundle = NSBundle(forClass: FunTests.classForCoder())
+    let bundle = Bundle(for: FunTests.classForCoder())
     
     func testEqual() {
         do {
             let emulator = Emulator()
             try emulator.execute([209, 215, 100])
             
-            let path = bundle.pathForResource("Equal", ofType: "cc3")!
+            let path = bundle.path(forResource: "Equal", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             try emulator.execute(instructions)
@@ -30,7 +30,7 @@ class FunTests: XCTestCase {
             let emulator = Emulator()
             try emulator.execute([205, 219, 409, 415, 100])
             
-            let path = bundle.pathForResource("Equal", ofType: "cc3")!
+            let path = bundle.path(forResource: "Equal", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             try emulator.execute(instructions)
@@ -45,7 +45,7 @@ class FunTests: XCTestCase {
             let emulator = Emulator()
             try emulator.execute([209, 215, 100])
             
-            let path = bundle.pathForResource("GreaterThanOrEqual", ofType: "cc3")!
+            let path = bundle.path(forResource: "GreaterThanOrEqual", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             try emulator.execute(instructions)
@@ -58,7 +58,7 @@ class FunTests: XCTestCase {
             let emulator = Emulator()
             try emulator.execute([205, 215, 100])
             
-            let path = bundle.pathForResource("GreaterThanOrEqual", ofType: "cc3")!
+            let path = bundle.path(forResource: "GreaterThanOrEqual", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             try emulator.execute(instructions)
@@ -71,7 +71,7 @@ class FunTests: XCTestCase {
             let emulator = Emulator()
             try emulator.execute([205, 219, 100])
             
-            let path = bundle.pathForResource("GreaterThanOrEqual", ofType: "cc3")!
+            let path = bundle.path(forResource: "GreaterThanOrEqual", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             try emulator.execute(instructions)
@@ -86,7 +86,7 @@ class FunTests: XCTestCase {
             let emulator = Emulator()
             try emulator.execute([209, 215, 100])
             
-            let path = bundle.pathForResource("Modulus", ofType: "cc3")!
+            let path = bundle.path(forResource: "Modulus", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             try emulator.execute(instructions)
@@ -99,7 +99,7 @@ class FunTests: XCTestCase {
             let emulator = Emulator()
             try emulator.execute([205, 219, 100])
             
-            let path = bundle.pathForResource("Modulus", ofType: "cc3")!
+            let path = bundle.path(forResource: "Modulus", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             try emulator.execute(instructions)
@@ -112,7 +112,7 @@ class FunTests: XCTestCase {
             let emulator = Emulator()
             try emulator.execute([209, 219, 100])
             
-            let path = bundle.pathForResource("Modulus", ofType: "cc3")!
+            let path = bundle.path(forResource: "Modulus", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             try emulator.execute(instructions)
@@ -125,7 +125,7 @@ class FunTests: XCTestCase {
             let emulator = Emulator()
             try emulator.execute([209, 213, 100])
             
-            let path = bundle.pathForResource("Modulus", ofType: "cc3")!
+            let path = bundle.path(forResource: "Modulus", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             try emulator.execute(instructions)
@@ -138,13 +138,13 @@ class FunTests: XCTestCase {
     func testRand() {
         do {
             let seed: [Int] = try {
-                let path = bundle.pathForResource("Seed", ofType: "cc3")!
+                let path = bundle.path(forResource: "Seed", ofType: "cc3")!
                 let compiler = try Compiler(filePath: path)
                 return try compiler.compile()
             }()
             
             let rand: [Int] = try {
-                let path = bundle.pathForResource("Rand", ofType: "cc3")!
+                let path = bundle.path(forResource: "Rand", ofType: "cc3")!
                 let compiler = try Compiler(filePath: path)
                 return try compiler.compile()
             }()
@@ -160,11 +160,11 @@ class FunTests: XCTestCase {
         do {
             let emulator = Emulator()
             
-            let path = bundle.pathForResource("Rand", ofType: "cc3")!
+            let path = bundle.path(forResource: "Rand", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             
-            var hits = Array(count: 1000, repeatedValue: false)
+            var hits = Array(repeating: false, count: 1000)
             for _ in 0..<1000 {
                 try emulator.execute(instructions)
                 hits[emulator.registers[0]] = true

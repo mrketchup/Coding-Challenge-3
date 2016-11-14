@@ -10,11 +10,11 @@ import XCTest
 
 class CompilerTests: XCTestCase {
 
-    let bundle = NSBundle(forClass: CompilerTests.classForCoder())
+    let bundle = Bundle(for: CompilerTests.classForCoder())
     
     func testInitFromPath() {
         do {
-            let path = bundle.pathForResource("Challenge", ofType: "cc3")!
+            let path = bundle.path(forResource: "Challenge", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             XCTAssertNotNil(compiler)
         } catch {
@@ -24,8 +24,8 @@ class CompilerTests: XCTestCase {
     
     func testInitFromData() {
         do {
-            let path = bundle.pathForResource("Challenge", ofType: "cc3")!
-            let data = NSData(contentsOfFile: path)!
+            let path = bundle.path(forResource: "Challenge", ofType: "cc3")!
+            let data = try! Data(contentsOf: URL(fileURLWithPath: path))
             let compiler = try Compiler(fileData: data)
             XCTAssertNotNil(compiler)
         } catch {
@@ -35,7 +35,7 @@ class CompilerTests: XCTestCase {
     
     func testInitFromString() {
         do {
-            let path = bundle.pathForResource("Challenge", ofType: "cc3")!
+            let path = bundle.path(forResource: "Challenge", ofType: "cc3")!
             let string = try String(contentsOfFile: path)
             let compiler = Compiler(codeString: string)
             XCTAssertNotNil(compiler)
@@ -46,7 +46,7 @@ class CompilerTests: XCTestCase {
     
     func testCompileSuccess() {
         do {
-            let path = bundle.pathForResource("Test", ofType: "cc3")!
+            let path = bundle.path(forResource: "Test", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             let expected = [000, 212, 323, 434, 545, 656, 767, 878, 989, 090, 123, 123, 000, 100]
@@ -56,7 +56,7 @@ class CompilerTests: XCTestCase {
         }
         
         do {
-            let path = bundle.pathForResource("Challenge", ofType: "cc3")!
+            let path = bundle.path(forResource: "Challenge", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             let expected = [299, 492, 495, 399, 492, 495, 399, 283, 279, 689, 078, 100, 000, 000, 000]
@@ -69,9 +69,9 @@ class CompilerTests: XCTestCase {
     func testCompileInvalidSyntax() {
         do {
             let compiler = Compiler(codeString: "derpyderp")
-            try compiler.compile()
-        } catch let error as Compiler.Error {
-            if case .InvalidSyntax(let line) = error {
+            _ = try compiler.compile()
+        } catch let error as Compiler.CompilerError {
+            if case .invalidSyntax(let line) = error {
                 XCTAssertEqual(line, 1)
             } else {
                 XCTFail("\(error)")
@@ -82,9 +82,9 @@ class CompilerTests: XCTestCase {
         
         do {
             let compiler = Compiler(codeString: "raw 123 123")
-            try compiler.compile()
-        } catch let error as Compiler.Error {
-            if case .InvalidSyntax(let line) = error {
+            _ = try compiler.compile()
+        } catch let error as Compiler.CompilerError {
+            if case .invalidSyntax(let line) = error {
                 XCTAssertEqual(line, 1)
             } else {
                 XCTFail("\(error)")
@@ -97,9 +97,9 @@ class CompilerTests: XCTestCase {
     func testCompileUnknownMethod() {
         do {
             let compiler = Compiler(codeString: "derp 1 2")
-            try compiler.compile()
-        } catch let error as Compiler.Error {
-            if case .UnknownMethod(let method, let line) = error {
+            _ = try compiler.compile()
+        } catch let error as Compiler.CompilerError {
+            if case .unknownMethod(let method, let line) = error {
                 XCTAssertEqual(method, "derp")
                 XCTAssertEqual(line, 1)
             } else {
@@ -113,9 +113,9 @@ class CompilerTests: XCTestCase {
     func testCompileIllegalArgument() {
         do {
             let compiler = Compiler(codeString: "add xx 0")
-            try compiler.compile()
-        } catch let error as Compiler.Error {
-            if case .IllegalArgument(let argument, let line) = error {
+            _ = try compiler.compile()
+        } catch let error as Compiler.CompilerError {
+            if case .illegalArgument(let argument, let line) = error {
                 XCTAssertEqual(argument, "xx")
                 XCTAssertEqual(line, 1)
             } else {
@@ -127,9 +127,9 @@ class CompilerTests: XCTestCase {
         
         do {
             let compiler = Compiler(codeString: "set 5 99")
-            try compiler.compile()
-        } catch let error as Compiler.Error {
-            if case .IllegalArgument(let argument, let line) = error {
+            _ = try compiler.compile()
+        } catch let error as Compiler.CompilerError {
+            if case .illegalArgument(let argument, let line) = error {
                 XCTAssertEqual(argument, "99")
                 XCTAssertEqual(line, 1)
             } else {
@@ -141,9 +141,9 @@ class CompilerTests: XCTestCase {
         
         do {
             let compiler = Compiler(codeString: "raw 1234")
-            try compiler.compile()
-        } catch let error as Compiler.Error {
-            if case .IllegalArgument(let argument, let line) = error {
+            _ = try compiler.compile()
+        } catch let error as Compiler.CompilerError {
+            if case .illegalArgument(let argument, let line) = error {
                 XCTAssertEqual(argument, "1234")
                 XCTAssertEqual(line, 1)
             } else {

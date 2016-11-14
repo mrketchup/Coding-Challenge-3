@@ -10,11 +10,11 @@ import XCTest
 
 class ChallengeTests: XCTestCase {
 
-    let bundle = NSBundle(forClass: ChallengeTests.classForCoder())
+    let bundle = Bundle(for: ChallengeTests.classForCoder())
     
     func testCodingChallenge() {
         do {
-            let path = bundle.pathForResource("Challenge", ofType: "cc3")!
+            let path = bundle.path(forResource: "Challenge", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             let emulator = Emulator()
@@ -26,7 +26,7 @@ class ChallengeTests: XCTestCase {
         }
         
         do {
-            let path = bundle.pathForResource("Pretty Challenge", ofType: "cc3")!
+            let path = bundle.path(forResource: "Pretty Challenge", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             let emulator = Emulator()
@@ -40,7 +40,7 @@ class ChallengeTests: XCTestCase {
     
     func testCodingChallenge42() {
         do {
-            let path = bundle.pathForResource("Challenge42", ofType: "cc3")!
+            let path = bundle.path(forResource: "Challenge42", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             let emulator = Emulator()
@@ -53,7 +53,7 @@ class ChallengeTests: XCTestCase {
     
     func testCodingChallenge1000() {
         do {
-            let path = bundle.pathForResource("Challenge1000", ofType: "cc3")!
+            let path = bundle.path(forResource: "Challenge1000", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             let emulator = Emulator()
@@ -66,7 +66,7 @@ class ChallengeTests: XCTestCase {
     
     func testCodingChallenge1234() {
         do {
-            let path = bundle.pathForResource("Challenge1234", ofType: "cc3")!
+            let path = bundle.path(forResource: "Challenge1234", ofType: "cc3")!
             let compiler = try Compiler(filePath: path)
             let instructions = try compiler.compile()
             let emulator = Emulator()

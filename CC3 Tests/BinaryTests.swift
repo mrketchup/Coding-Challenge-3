@@ -8,13 +8,12 @@
 
 import XCTest
 
-extension NSData {
+extension Data {
     
     var byteArray: [UInt8] {
-        let ptr = UnsafePointer<UInt8>(bytes)
         var array: [UInt8] = []
-        for i in 0..<length {
-            array.append(ptr[i])
+        for byte in self {
+            array.append(byte)
         }
         
         return array
@@ -53,9 +52,9 @@ class BinaryTests: XCTestCase {
     func testBinaryWriterTooManyInstructions() {
         do {
             let writer = BinaryWriter()
-            try writer.encode(instructions: Array(count: 1234, repeatedValue: 101))
-        } catch let error as BinaryWriter.Error {
-            if case .TooManyInstructions(let count) = error {
+            _ = try writer.encode(instructions: Array(repeating: 101, count: 1234))
+        } catch let error as BinaryWriter.BinaryWriterError {
+            if case .tooManyInstructions(let count) = error {
                 XCTAssertEqual(count, 1234)
             } else {
                 XCTFail("\(error)")
@@ -68,9 +67,9 @@ class BinaryTests: XCTestCase {
     func testBinaryWriterInvalidInstruction() {
         do {
             let writer = BinaryWriter()
-            try writer.encode(instructions: [000, 001, 1234, 997, 998, 999])
-        } catch let error as BinaryWriter.Error {
-            if case .InvalidInstruction(let instruction, let index) = error {
+            _ = try writer.encode(instructions: [000, 001, 1234, 997, 998, 999])
+        } catch let error as BinaryWriter.BinaryWriterError {
+            if case .invalidInstruction(let instruction, let index) = error {
                 XCTAssertEqual(instruction, 1234)
                 XCTAssertEqual(index, 2)
             } else {
@@ -84,22 +83,22 @@ class BinaryTests: XCTestCase {
     func testBinaryReaderSuccess() {
         do {
             let reader = BinaryReader()
-            let instructions = try reader.decode(data: NSData())
+            let instructions = try reader.decode(data: Data())
             XCTAssertEqual(instructions, [])
         } catch {
             XCTFail("\(error)")
         }
         
         do {
-            let data = NSMutableData()
-            data.appendBytes(UnsafePointer([0x00]), length: 1)
-            data.appendBytes(UnsafePointer([0x00]), length: 1)
-            data.appendBytes(UnsafePointer([0x10]), length: 1)
-            data.appendBytes(UnsafePointer([0x0B]), length: 1)
-            data.appendBytes(UnsafePointer([0xE5]), length: 1)
-            data.appendBytes(UnsafePointer([0xF9]), length: 1)
-            data.appendBytes(UnsafePointer([0xBE]), length: 1)
-            data.appendBytes(UnsafePointer([0x70]), length: 1)
+            var data = Data()
+            data.append(UnsafePointer([0x00]), count: 1)
+            data.append(UnsafePointer([0x00]), count: 1)
+            data.append(UnsafePointer([0x10]), count: 1)
+            data.append(UnsafePointer([0x0B]), count: 1)
+            data.append(UnsafePointer([0xE5]), count: 1)
+            data.append(UnsafePointer([0xF9]), count: 1)
+            data.append(UnsafePointer([0xBE]), count: 1)
+            data.append(UnsafePointer([0x70]), count: 1)
             let reader = BinaryReader()
             let instructions = try reader.decode(data: data)
             XCTAssertEqual(instructions, [000, 001, 002, 997, 998, 999])
@@ -109,7 +108,7 @@ class BinaryTests: XCTestCase {
         
         do {
             let writer = BinaryWriter()
-            let instructions = Array(count: Architecture.RamSize, repeatedValue: 101)
+            let instructions = Array(repeating: 101, count: Architecture.RamSize)
             let data = try writer.encode(instructions: instructions)
             let reader = BinaryReader()
             XCTAssertEqual(instructions, try reader.decode(data: data))
@@ -121,14 +120,14 @@ class BinaryTests: XCTestCase {
     func testBinaryReaderInstructionOverflow() {
         do {
             let writer = BinaryWriter()
-            let instructions = Array(count: Architecture.RamSize, repeatedValue: 101)
-            let data = NSMutableData(data: try writer.encode(instructions: instructions))
-            data.appendBytes(UnsafePointer([0x10]), length: 1)
-            data.appendBytes(UnsafePointer([0x10]), length: 1)
+            let instructions = Array(repeating: 101, count: Architecture.RamSize)
+            var data = try writer.encode(instructions: instructions)
+            data.append(UnsafePointer([0x10]), count: 1)
+            data.append(UnsafePointer([0x10]), count: 1)
             let reader = BinaryReader()
-            try reader.decode(data: data)
-        } catch let error as BinaryReader.Error {
-            XCTAssertTrue(error == .InstructionOverflow)
+            _ = try reader.decode(data: data)
+        } catch let error as BinaryReader.BinaryReaderError {
+            XCTAssertTrue(error == .instructionOverflow)
         } catch {
             XCTFail("\(error)")
         }
