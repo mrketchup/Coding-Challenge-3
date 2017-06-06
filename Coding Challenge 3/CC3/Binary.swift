@@ -43,18 +43,20 @@ class BinaryWriter {
     }
     
     private func binaryArray(_ instruction: UInt16) -> [Bool] {
-        return [
-            instruction & 0b1000000000 > 0,
-            instruction & 0b0100000000 > 0,
-            instruction & 0b0010000000 > 0,
-            instruction & 0b0001000000 > 0,
-            instruction & 0b0000100000 > 0,
-            instruction & 0b0000010000 > 0,
-            instruction & 0b0000001000 > 0,
-            instruction & 0b0000000100 > 0,
-            instruction & 0b0000000010 > 0,
-            instruction & 0b0000000001 > 0
+        let bits = [
+            instruction & 0b1000000000,
+            instruction & 0b0100000000,
+            instruction & 0b0010000000,
+            instruction & 0b0001000000,
+            instruction & 0b0000100000,
+            instruction & 0b0000010000,
+            instruction & 0b0000001000,
+            instruction & 0b0000000100,
+            instruction & 0b0000000010,
+            instruction & 0b0000000001
         ]
+        
+        return bits.map { $0 > 0 }
     }
     
     private func write(bit: Bool) {
